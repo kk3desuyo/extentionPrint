@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "ru-print-job",
+  "version": "1.0.1",
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://wprt.media.ryukoku.ac.jp/SendPrintJobWebApp/MainPage.aspx"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["img/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "description": "龍谷大学のプリントジョブにおける複数ファイルの投入を可能にする拡張機能です。"
+}
