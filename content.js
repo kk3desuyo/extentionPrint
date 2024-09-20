@@ -23,104 +23,9 @@ class PrintFile {
     PrintFile.fileList.push(this);
     console.log("ファイルインスタンス作成しました。");
   }
-
-  //   //龍谷のサーバーにアップロードされた"全て"のファイルを送信する関数
-  //   static fileUploadToRU() {
-  //     if (this.fileList.length < 0) {
-  //       alert("ファイルをアップロードしてください。");
-  //       return;
-  //     }
-  //     for (const file of this.fileList) {
-  //       const df = new DataTransfer();
-  //       // FileオブジェクトをDataTransferに追加
-  //       if (file.fileData instanceof File) {
-  //         df.items.add(file.fileData);
-  //       } else {
-  //         console.error("The item is not a File:", file.fileData);
-  //         continue;
-  //       }
-
-  //       //ファイルを龍谷のページに送信
-  //       const fileInput = document.getElementById("FileUpload1");
-  //       fileInput.files = df.file;
-
-  //       //印刷設定を龍谷のページに送信
-  //       const paperSize = document.getElementById("dlOutputSeatSize");
-  //       const sidesPrint = document.getElementById("dlDuplexType");
-  //       const multipleUp = document.getElementById("dlNup");
-  //       const outputColor = document.getElementById("dlColorMode");
-  //       const collated = document.getElementById("ckSort");
-  //       const sheets = document.getElementById("tCopies");
-  //       paperSize.value = file.paperSize;
-  //       sidesPrint.value = file.sidedPrint;
-  //       multipleUp.value = file.multipleUp;
-  //       outputColor.value = file.outputColor;
-  //       collated.checkBox = file.collated;
-  //       sheets.value = file.sheets;
-
-  //       //投入
-  //       const submitButton = document.getElementById("btUploadStart");
-  //       submitButton.dispatchEvent(new Event("click"));
-  //     }
-  //   }
 }
-// var outputSizeSelect = document.getElementById("dlOutputSeatSize");
-// var sidedPrintSelect = document.getElementById("dlDuplexType");
-// var multipleUpSelect = document.getElementById("dlNup");
-// var colorModeSelect = document.getElementById("dlColorMode");
-// var collatedCheckbox = document.getElementById("ckSort");
-// var sheetsInput = document.getElementById("tCopies");
 
-// outputSizeSelect.addEventListener("change", () => {
-//   for (const fileId of selectedFileds) {
-//     PrintFile.fileList[fileId].paperSize = outputSizeSelect.value;
-//     console.log(fileId + "の設定変更");
-//   }
-//   saveFilesToSession();
-// });
-
-// sidedPrintSelect.addEventListener("change", () => {
-//   for (const fileId of selectedFileds) {
-//     PrintFile.fileList[fileId].sidedPrint = sidedPrintSelect.value;
-//     console.log(fileId + "の設定変更");
-//   }
-//   saveFilesToSession();
-// });
-
-// multipleUpSelect.addEventListener("change", () => {
-//   for (const fileId of selectedFileds) {
-//     PrintFile.fileList[fileId].multipleUp = multipleUpSelect.value;
-//     console.log(fileId + "の設定変更");
-//   }
-//   saveFilesToSession();
-// });
-
-// colorModeSelect.addEventListener("change", () => {
-//   for (const fileId of selectedFileds) {
-//     PrintFile.fileList[fileId].outputColor = colorModeSelect.value;
-//     console.log(fileId + "の設定変更");
-//   }
-//   saveFilesToSession();
-// });
-
-// collatedCheckbox.addEventListener("change", () => {
-//   for (const fileId of selectedFileds) {
-//     PrintFile.fileList[fileId].collated = collatedCheckbox.checked;
-//     console.log(fileId + "の設定変更");
-//   }
-//   saveFilesToSession();
-//   // Checkbox の場合は `.checked` を使う
-// });
-
-// sheetsInput.addEventListener("change", () => {
-//   console.log("枚数を変更しました。");
-//   for (const fileId of selectedFileds) {
-//     PrintFile.fileList[fileId].sheets = sheetsInput.value;
-//     console.log(fileId + "の設定変更");
-//   }
-//   saveFilesToSession();
-// });
-//不要なイベント発火を防ぐ
+//印刷設定を変更する(不要なイベント発火を防ぐため)
 function safelyUpdateSelect(element, value) {
   // 一時的にイベントリスナーを解除
   const originalEvents = element.onchange;
@@ -386,23 +291,6 @@ function addFileHtml(file) {
         //選択ファイルのリセット
         selectedFileds = [];
         selectedFileds.push(file.id);
-        // console.log("ファイルを選択しています-----------" + selectedFileId);
-        // //選択中ファイルの枠線消去
-        // const fileCardPrev = document.getElementById(
-        //   "fileCard-" + PrintFile.fileList[selectedFileId].id
-        // );
-        // // 枠線を青色から消去する
-        // fileCardPrev.classList.remove("blue-border");
-        // //選択中ファイル変更
-        // selectedFileId = file.id;
-        // //枠線追加
-        // const fileCardNow = document.getElementById(
-        //   "fileCard-" + PrintFile.fileList[selectedFileId].id
-        // );
-        // fileCardNow.classList.add("blue-border");
-        // displaySetting();
-
-        // console.log("ファイルを選択しています", selectedFileId);
       }
 
       console.log("選択中ファイル一覧" + selectedFileds);
@@ -474,6 +362,7 @@ function saveFilesToSession() {
   sessionStorage.setItem("printFiles", JSON.stringify(filesData));
   console.log("ファイル情報をセッションストレージに更新しました。");
 }
+
 window.addEventListener(
   "load",
   () => {
@@ -498,8 +387,6 @@ window.addEventListener(
           addBrueBorder();
         }
       }
-
-      //   addFileHtml(new PrintFile());
     });
   },
   false
