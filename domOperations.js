@@ -30,7 +30,7 @@ export function displaySetting(selectedFileId) {
 /**
  * 初期DOM構造を変更（ファイル一覧表示領域追加）
  */
-export function chageDom() {
+export function changeDom() {
   let main = document.querySelector(".main");
   if (main) {
     main.insertAdjacentHTML(

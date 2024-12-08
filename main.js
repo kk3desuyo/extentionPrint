@@ -1,5 +1,5 @@
 // main.js
-import { chageDom } from './domOperations.js';
+import { changeDom } from './domOperations.js';
 import { loadFilesFromSession, saveFilesToSession } from './session.js';
 import { PrintFile, selectedFileds, setSelectedFileds, addSelectedField } from './printFile.js';
 import { displaySetting, addBrueBorder, addFileHtml } from './domOperations.js';
@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.addEventListener("load", () => {
-  chageDom();
+  //アップロード一覧の表示部分の追加　& セッションストレージから未アップロードファイル情報を取得
+  changeDom();
   loadFilesFromSession();
 
   const input = document.getElementById("customAddFileUploads");
