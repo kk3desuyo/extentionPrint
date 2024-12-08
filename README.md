@@ -10,6 +10,7 @@ Zenn : https://zenn.dev/kk3desu
 
 ### 大まかな設計
 > ※今回大学の印刷サイトをベースにして拡張機能を作成しているため、DOM操作を行う必要があります。そのため、DOM-basedXSS(クロスサイトスクリプティング)が起こる可能性があるので配布を前提とせず、あくまで個人で利用するための拡張機能として作成をします。
+
 ![スクリーンショット 2024-12-06 14.59.59.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3788663/cdcf2073-2c24-ada4-1d32-ee0d33272f62.png)
 ![スクリーンショット 2024-12-06 15.00.29.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3788663/6340afce-d28e-beec-6753-c42445475713.png)
 
